@@ -560,6 +560,43 @@
      * - Convert this into a React component library with real state & animations.
      * - Generate an annotated Figma spec or handoff-ready HTML/CSS with tokens.
      **************************************************************************/
+    <script>
+  const overlay = document.getElementById('overlay');
+  const modalBox = document.getElementById('modalBox');
+
+  // open modal
+  function openModal(title, body){
+    modalBox.innerHTML = `<h3>${title}</h3><p>${body}</p><button id='closeModal'>Close</button>`;
+    overlay.style.display='flex';
+    document.getElementById('closeModal').onclick=()=>overlay.style.display='none';
+  }
+
+  // Get Started triggers modal
+  document.getElementById('getStarted').addEventListener('click', ()=>{
+    openModal('Get Started', 'You tapped “Get Started” — this would lead to onboarding or sign-in inside the Digit app.');
+  });
+
+  // Action buttons inside phone
+  document.querySelectorAll('.action-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      openModal(btn.dataset.action, `You tapped “${btn.dataset.action}” — this triggers that feature for demo testing.`);
+    });
+  });
+
+  // Bottom nav toggles
+  const navItems=document.querySelectorAll('.nav-item');
+  navItems.forEach(item=>{
+    item.addEventListener('click',()=>{
+      navItems.forEach(i=>i.classList.remove('active'));
+      item.classList.add('active');
+      openModal('Navigation', `Switched to the “${item.dataset.screen}” interface (demo view).`);
+    });
+  });
+
+  // click outside modal to close
+  overlay.addEventListener('click',e=>{
+    if(e.target===overlay) overlay.style.display='none';
+  });
   </script>
 </body>
 </html>
