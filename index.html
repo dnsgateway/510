@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Digit — Self-Custody Wallet (Interactive Landing)</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digit – Modern Crypto Wallet</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -230,447 +230,91 @@
     box-shadow:0 10px 40px rgba(0,0,0,0.3);
   }
   .modal h3{margin-bottom:16px;}
-  .modal button{margin-top:20px;background:#2f6df6;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:
-
-    .card{
-      background:white;
-      border-radius:14px;
-      padding:16px;
-      box-shadow:0 8px 18px rgba(16,24,40,0.06);
-      border:1px solid rgba(0,0,0,0.03);
-    }
-
-    /* balance card */
-    .balance-card{
-      margin-bottom:14px;
-    }
-    .balance-card .label{color:#777;font-size:13px}
-    .balance-amount{font-size:28px;font-weight:700;margin-top:6px}
-    .mini-chart{
-      height:42px;margin-top:10px;color:#25a96a;font-weight:700;font-size:13px;
-    }
-
-    /* quick actions */
-    .quick-actions{display:flex;gap:10px;margin-bottom:14px}
-    .qa-btn{
-      flex:1;
-      min-width:0;background:#fff;border-radius:12px;padding:12px;
-      display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid rgba(0,0,0,0.04);
-      cursor:pointer;font-size:13px;color:#333;
-    }
-    .qa-ic{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center}
-
-    /* portfolio list */
-    .portfolio{margin-top:4px}
-    .asset{
-      display:flex;justify-content:space-between;align-items:center;padding:12px 10px;border-radius:10px;margin-top:8px;background:linear-gradient(180deg, rgba(250,250,255,0.6), rgba(250,250,255,1));
-    }
-    .asset-left{display:flex;align-items:center;gap:12px}
-    .coin-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
-    .coin-label{font-weight:700}
-    .coin-sub{color:#777;font-size:12px}
-
-    /* bottom nav */
-    .bottom-nav{
-      height:66px;
-      border-top:1px solid rgba(0,0,0,0.04);
-      display:flex;align-items:center;justify-content:space-around;padding:8px 6px;margin-top:8px;
-      background:transparent;
-    }
-    .nav-item{display:flex;flex-direction:column;align-items:center;gap:6px;color:#6b7280;font-size:12px;cursor:pointer}
-    .nav-item.active{color:#2f6df6;font-weight:700}
-
-    /* small utilities */
-    .muted{color:#6b7280;font-size:13px}
-    .right-align{text-align:right}
-
-    /* modals */
-    .overlay{
-      position:fixed;inset:0;background:rgba(6,10,20,0.45);display:none;align-items:center;justify-content:center;z-index:40;
-    }
-    .modal{
-      width:420px;max-width:96vw;background:white;border-radius:14px;padding:18px;box-shadow:0 20px 60px rgba(8,20,40,0.45)
-    }
-    .modal h3{margin:0 0 12px 0}
-    .row{display:flex;gap:10px;align-items:center}
-    .field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-    .input{padding:10px;border-radius:10px;border:1px solid #e6e9ef;font-size:15px}
-
-    /* small responsive */
-    @media (max-width:1100px){
-      .wrapper{flex-direction:column;align-items:center}
-      .hero{text-align:center}
-      .phone-wrap{order:-1}
-    }
-
-    /* tiny helpers - icons */
-    .svg-icon{width:18px;height:18px;display:inline-block;vertical-align:middle}
-    /* badges */
-    .badge{background:#eef6ff;color:#2f6df6;padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px}
-  </style>
+  .modal button{margin-top:20px;background:#2f6df6;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;}
+</style>
 </head>
 <body>
-  <div class="wrapper">
-    <!-- HERO -->
-    <div class="hero" aria-hidden="false">
-      <h1>A modern, interactive self-custody crypto wallet</h1>
-      <p>Manage your crypto assets and tokens. Spend crypto like cash. Swap, exchange and trade crypto. Connect to Web3 and DApps. Digit includes Adaptive Spend Routing™ and Smart Cash-Mode to make crypto payments feel as seamless as card payments.</p>
 
-      <div class="cta-row">
-        <button class="btn btn-primary" id="getStartedBtn">Get started</button>
-        <button class="btn btn-ghost" id="tryDemoBtn">Try demo interactions</button>
-      </div>
-      <div class="small-note">Interactive mockup — click actions on the iPhone or use the buttons above to test flows.</div>
-    </div>
+<header>
+  <div class="logo">Digit</div>
+  <nav><a href="#">How Digit Works</a></nav>
+</header>
 
-    <!-- PHONE -->
-    <div class="phone-wrap" aria-hidden="false">
-      <div class="phone" role="application" aria-label="Digit phone mockup">
-        <div class="app-header">
-          <div class="app-title">Digit</div>
-          <div class="status-icons">
-            <span class="muted">9:41</span>
-            <span>●</span>
-          </div>
-        </div>
+<div class="container">
+  <!-- LEFT -->
+  <div class="left">
+    <h1>A modern, interactive self-custody crypto wallet</h1>
+    <p>Manage your crypto assets and tokens. Spend crypto like cash. Swap, exchange and trade crypto. Connect to Web3 and DApps — all from one secure app.</p>
+    <button class="cta" id="getStarted">Get started</button>
+  </div>
 
-        <!-- SCREENS -->
-        <div class="screen" id="screenContainer">
-          <!-- HOME SCREEN -->
-          <div class="screen-view" id="homeScreen">
-            <div class="card balance-card">
-              <div class="label">Total balance</div>
-              <div class="balance-amount" id="balanceAmount">$26,524.00</div>
-              <div class="mini-chart">▲ +4.24% (24h)</div>
-            </div>
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="iphone">
+      <div class="screen" id="digitApp">
 
-            <div class="quick-actions">
-              <div class="qa-btn" data-action="send" title="Send">
-                <div class="qa-ic">✈️</div>
-                <div style="font-size:13px">Send</div>
-              </div>
-              <div class="qa-btn" data-action="spend" title="Spend">
-                <div class="qa-ic">💳</div>
-                <div style="font-size:13px">Spend</div>
-              </div>
-              <div class="qa-btn" data-action="swap" title="Swap">
-                <div class="qa-ic">🔁</div>
-                <div style="font-size:13px">Swap</div>
-              </div>
-              <div class="qa-btn" data-action="exchange" title="Exchange">
-                <div class="qa-ic">📈</div>
-                <div style="font-size:13px">Exchange</div>
-              </div>
-            </div>
+        <div class="app-header">Digit</div>
 
-            <div class="muted" style="margin-bottom:8px">Main portfolio</div>
-
-            <div class="portfolio">
-              <div class="asset">
-                <div class="asset-left">
-                  <div class="coin-icon" style="background:#f7931a">₿</div>
-                  <div>
-                    <div class="coin-label">Bitcoin</div>
-                    <div class="coin-sub">0.35 BTC</div>
-                  </div>
-                </div>
-                <div class="right-align">
-                  <div style="font-weight:700">$14,689.30</div>
-                  <div class="muted" style="font-size:12px">8:50 / lirr</div>
-                </div>
-              </div>
-
-              <div class="asset">
-                <div class="asset-left">
-                  <div class="coin-icon" style="background:#627eea">Ξ</div>
-                  <div>
-                    <div class="coin-label">Ethereum</div>
-                    <div class="coin-sub">1.30 ETH</div>
-                  </div>
-                </div>
-                <div class="right-align">
-                  <div style="font-weight:700">$11,884.70</div>
-                  <div class="muted" style="font-size:12px">1:27 / 91q</div>
-                </div>
-              </div>
-            </div>
+        <div>
+          <div class="balance-card">
+            <div class="balance-label">Total balance</div>
+            <div class="balance-value">$26,524.00</div>
+            <div class="balance-change">+4.24%</div>
           </div>
 
-          <!-- SETTINGS SCREEN -->
-          <div class="screen-view" id="settingsScreen" style="display:none">
-            <div class="card">
-              <h3 style="margin-top:0">Settings</h3>
-              <div class="field">
-                <label>Adaptive Spend Routing™</label>
-                <div class="row">
-                  <button class="btn btn-primary" id="toggleRouting">Enabled</button>
-                  <div class="muted" style="margin-left:auto">Routes spend for lowest cost & latency</div>
-                </div>
-              </div>
-
-              <div class="field">
-                <label>Smart Cash-Mode</label>
-                <div class="row">
-                  <button class="btn btn-ghost" id="toggleCash">Off</button>
-                  <div class="muted" style="margin-left:auto">Emulate card-like spend rails for a short time</div>
-                </div>
-              </div>
-
-              <div style="margin-top:16px" class="muted">Advanced</div>
-              <div style="margin-top:8px">
-                <div class="row" style="justify-content:space-between">
-                  <div class="muted">Network: <strong>Auto</strong></div>
-                  <div class="muted">Slippage: <strong>0.5%</strong></div>
-                </div>
-              </div>
-            </div>
+          <div class="actions">
+            <div class="action-btn" data-action="Send">Send</div>
+            <div class="action-btn" data-action="Spend">Spend</div>
+            <div class="action-btn" data-action="Swap">Swap</div>
+            <div class="action-btn" data-action="Exchange">Exchange</div>
           </div>
 
-          <!-- MESSAGES SCREEN -->
-          <div class="screen-view" id="messagesScreen" style="display:none">
-            <div class="card">
-              <h3 style="margin-top:0">Messages</h3>
-              <div class="muted">No messages yet — connect to a DApp to receive prompts.</div>
-            </div>
-          </div>
-
-          <!-- PROFILE SCREEN -->
-          <div class="screen-view" id="profileScreen" style="display:none">
-            <div class="card">
-              <h3 style="margin-top:0">Profile</h3>
-              <div style="display:flex;gap:12px;align-items:center">
-                <div style="width:64px;height:64px;border-radius:14px;background:#eef2ff;display:flex;align-items:center;justify-content:center;font-weight:800">JD</div>
+          <div class="portfolio">
+            <div class="coin">
+              <div class="coin-left">
+                <div class="coin-icon" style="background:#f7931a;">₿</div>
                 <div>
-                  <div style="font-weight:800">Jordan Doe</div>
-                  <div class="muted">@jordanwallet</div>
+                  <div class="coin-label">Bitcoin</div>
+                  <div class="coin-sub">0.35 BTC</div>
                 </div>
               </div>
-
-              <div style="margin-top:12px">
-                <div class="muted">Security</div>
-                <div style="margin-top:6px">
-                  <div class="muted">Recovery mode: <strong>Seed (Locally encrypted)</strong></div>
+              <div>$14,689.30</div>
+            </div>
+            <div class="coin">
+              <div class="coin-left">
+                <div class="coin-icon" style="background:#627eea;">Ξ</div>
+                <div>
+                  <div class="coin-label">Ethereum</div>
+                  <div class="coin-sub">1.30 ETH</div>
                 </div>
               </div>
+              <div>$11,884.70</div>
             </div>
           </div>
-
         </div>
 
-        <!-- bottom nav -->
-        <div class="bottom-nav" role="navigation" aria-label="Bottom menu">
-          <div class="nav-item active" data-target="homeScreen" id="navHome">
-            <svg class="svg-icon" viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 20.5V11h14v9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <div>Home</div>
-          </div>
-          <div class="nav-item" data-target="settingsScreen" id="navSettings">
-            <svg class="svg-icon" viewBox="0 0 24 24" fill="none"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.4 15a1 1 0 0 0 .8-1.1 8.1 8.1 0 0 0-.2-1.9 1 1 0 0 0-.8-.8l-2-.4a7.7 7.7 0 0 0-.6-1.1l1.1-1.8a1 1 0 0 0-.2-1.3 8.4 8.4 0 0 0-1.6-1.2 1 1 0 0 0-1.4.4l-1.1 1.8a7.3 7.3 0 0 0-1.5 0L9.1 4.2a1 1 0 0 0-1.4-.4 8.4 8.4 0 0 0-1.6 1.2 1 1 0 0 0-.2 1.3l1.1 1.8c-.2.3-.4.7-.6 1.1l-2 .4a1 1 0 0 0-.8.8 8.1 8.1 0 0 0-.2 1.9 1 1 0 0 0 .8 1.1l2.2.5c.1.4.3.8.6 1.1l-1.1 1.8a1 1 0 0 0 .2 1.3 8.4 8.4 0 0 0 1.6 1.2 1 1 0 0 0 1.4-.4l1.1-1.8c.5-.1 1-.2 1.5-.2s1 .1 1.5.2l1.1 1.8a1 1 0 0 0 1.4.4 8.4 8.4 0 0 0 1.6-1.2 1 1 0 0 0 .2-1.3l-1.1-1.8c.3-.3.5-.7.6-1.1l2.2-.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <div>Settings</div>
-          </div>
-          <div class="nav-item" data-target="messagesScreen" id="navMessages">
-            <svg class="svg-icon" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <div>Messages</div>
-          </div>
-          <div class="nav-item" data-target="profileScreen" id="navProfile">
-            <svg class="svg-icon" viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <div>Profile</div>
-          </div>
+        <div class="bottom-nav">
+          <div class="nav-item active" data-screen="home">🏠<div>Home</div></div>
+          <div class="nav-item" data-screen="settings">⚙️<div>Settings</div></div>
+          <div class="nav-item" data-screen="messages">💬<div>Messages</div></div>
+          <div class="nav-item" data-screen="profile">👤<div>Profile</div></div>
         </div>
+
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Overlays / Modals -->
-  <div class="overlay" id="overlay">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Action modal" id="modalBox">
-      <!-- dynamic content injected -->
-    </div>
+<!-- Modal -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modalBox">
+    <h3>Digit Action</h3>
+    <p>This is a test modal to simulate actions and interfaces directly from the landing page mockup.</p>
+    <button id="closeModal">Close</button>
   </div>
+</div>
 
-  <script>
-    /**************************************************************************
-     * Digit — Interactive Landing Mock
-     *
-     * - Handles screen navigation
-     * - Quick action flows (Send, Spend, Swap, Exchange)
-     * - Demonstrates two product-differentiating features:
-     *     * Adaptive Spend Routing™ (trademark-like UI)
-     *     * Smart Cash-Mode (patent-like candidate)
-     *
-     * NOTE: This is a front-end demo only. Replace mock calls with real wallet
-     * connectivity (e.g. wallet-core, web3modal, RPC providers) in a real app.
-     **************************************************************************/
-
-    // Basic navigation between "screens"
-    const navItems = document.querySelectorAll('.nav-item');
-    const views = document.querySelectorAll('.screen-view');
-    function showScreen(targetId){
-      views.forEach(v => v.style.display = (v.id === targetId) ? '' : 'none');
-      navItems.forEach(n => {
-        if(n.dataset.target === targetId) n.classList.add('active'); else n.classList.remove('active');
-      });
-    }
-    navItems.forEach(n => n.addEventListener('click', ()=> showScreen(n.dataset.target)));
-
-    // Quick actions
-    const screenContainer = document.getElementById('screenContainer');
-    document.querySelectorAll('.qa-btn').forEach(btn => {
-      btn.addEventListener('click', (ev)=>{
-        const action = ev.currentTarget.dataset.action;
-        if(action === 'send') openSendModal();
-        if(action === 'spend') openSpendModal();
-        if(action === 'swap') openSwapModal();
-        if(action === 'exchange') openExchangeModal();
-      })
-    });
-
-    // Overlay modal helpers
-    const overlay = document.getElementById('overlay');
-    const modalBox = document.getElementById('modalBox');
-    function openModal(html){
-      modalBox.innerHTML = html + '<div style="margin-top:12px;text-align:right"><button class="btn btn-ghost" id="closeModalBtn">Close</button></div>';
-      overlay.style.display = 'flex';
-      document.getElementById('closeModalBtn').addEventListener('click', closeModal);
-    }
-    function closeModal(){ overlay.style.display='none'; modalBox.innerHTML=''; }
-
-    // Demo modals:
-    function openSendModal(){
-      openModal(`
-        <h3>Send Crypto</h3>
-        <div class="field"><label>Recipient address</label><input class="input" id="recip" placeholder="0x..." /></div>
-        <div class="field"><label>Amount (USD)</label><input type="number" class="input" id="sendAmt" value="50" /></div>
-        <div class="row" style="justify-content:space-between;align-items:center">
-          <div class="muted">Network fee estimate: <strong id="feeEst">$0.75</strong></div>
-          <button class="btn btn-primary" id="confirmSend">Confirm</button>
-        </div>
-      `);
-      document.getElementById('confirmSend').addEventListener('click', ()=>{
-        // Mock success
-        closeModal();
-        alert('Transaction queued — (mock). Adaptive Spend Routing™ chose the fastest rail.');
-      })
-    }
-
-    // Spend modal demonstrates Smart Cash-Mode and Adaptive Spend Routing
-    let smartCashMode = false;
-    let adaptiveRouting = true;
-    function openSpendModal(){
-      openModal(`
-        <h3>Spend — Checkout</h3>
-        <div class="field"><label>Merchant</label><div class="card">Coffee House</div></div>
-        <div class="field"><label>Amount</label><input class="input" id="spendAmt" type="number" value="4.50" /></div>
-        <div class="field">
-          <label>Payment rail</label>
-          <div class="row">
-            <div class="badge" id="railTag">${smartCashMode ? 'Smart Cash-Mode (fiat-rail)' : 'On-chain'}</div>
-            <div class="muted" style="margin-left:auto">Adaptive Spend Routing™: ${adaptiveRouting ? 'On' : 'Off'}</div>
-          </div>
-        </div>
-        <div class="row" style="justify-content:space-between;align-items:center">
-          <div class="muted">Estimated cost: <strong id="spendCost">$${smartCashMode ? '4.55' : '4.80'}</strong></div>
-          <button class="btn btn-primary" id="confirmSpend">Pay</button>
-        </div>
-      `);
-
-      document.getElementById('confirmSpend').addEventListener('click', ()=>{
-        closeModal();
-        // When Smart Cash-Mode is on, show a special toast
-        if(smartCashMode){
-          alert('Payment complete via Smart Cash-Mode (temporary fiat bridge).');
-        } else {
-          alert('Payment submitted on-chain. Adaptive Spend Routing™ attempted to use a low-fee relay.');
-        }
-      });
-    }
-
-    // Swap modal (simple)
-    function openSwapModal(){
-      openModal(`
-        <h3>Swap</h3>
-        <div class="field"><label>From</label><select class="input" id="swapFrom"><option>ETH</option><option>BTC</option><option>USDC</option></select></div>
-        <div class="field"><label>To</label><select class="input" id="swapTo"><option>USDC</option><option>ETH</option><option>BTC</option></select></div>
-        <div class="field"><label>Amount</label><input class="input" id="swapAmt" value="0.25" /></div>
-        <div class="muted" style="margin-bottom:10px">Estimated price impact: <strong>0.3%</strong></div>
-        <div style="text-align:right"><button class="btn btn-primary" id="confirmSwap">Swap</button></div>
-      `);
-      document.getElementById('confirmSwap').addEventListener('click', ()=>{
-        closeModal();
-        alert('Swap executed (mock). Best route used via Adaptive Spend Routing™.');
-      })
-    }
-
-    // Exchange modal for simple exchange interface
-    function openExchangeModal(){
-      openModal(`
-        <h3>Exchange (Pro)</h3>
-        <div class="field"><label>Market</label><select class="input"><option>BTC / USD</option><option>ETH / USD</option></select></div>
-        <div class="field"><label>Side</label><select class="input"><option>Buy</option><option>Sell</option></select></div>
-        <div class="field"><label>Amount</label><input class="input" value="1000" /></div>
-        <div style="text-align:right"><button class="btn btn-primary" id="confirmEx">Place Order</button></div>
-      `);
-      document.getElementById('confirmEx').addEventListener('click', ()=>{
-        closeModal();
-        alert('Order placed to exchange (mock)');
-      })
-    }
-
-    // Hero CTA buttons demo interactions
-    document.getElementById('getStartedBtn').addEventListener('click', ()=>{
-      showScreen('settingsScreen');
-      // highlight settings for first time setup
-      document.getElementById('navSettings').classList.add('active');
-    });
-    document.getElementById('tryDemoBtn').addEventListener('click', ()=>{
-      // open a sequence: spend modal, then swap
-      openSpendModal();
-    });
-
-    // Settings toggles (demonstration only)
-    document.getElementById('toggleRouting').addEventListener('click', (e)=>{
-      adaptiveRouting = !adaptiveRouting;
-      e.currentTarget.textContent = adaptiveRouting ? 'Enabled' : 'Disabled';
-      e.currentTarget.classList.toggle('btn-primary', adaptiveRouting);
-      e.currentTarget.classList.toggle('btn-ghost', !adaptiveRouting);
-    });
-    document.getElementById('toggleCash').addEventListener('click', (e)=>{
-      smartCashMode = !smartCashMode;
-      e.currentTarget.textContent = smartCashMode ? 'On' : 'Off';
-      e.currentTarget.classList.toggle('btn-primary', smartCashMode);
-      e.currentTarget.classList.toggle('btn-ghost', !smartCashMode);
-    });
-
-    // Accessibility: close modal on overlay click
-    overlay.addEventListener('click',(ev)=>{
-      if(ev.target === overlay) closeModal();
-    });
-
-    // Initialize
-    showScreen('homeScreen');
-
-    /**************************************************************************
-     * Notes on "patentable/trademark features" that the UI represents:
-     *
-     * 1) Adaptive Spend Routing™  (trademark-style name shown in UI)
-     *    - Concept: When user triggers a spend, Digit chooses among on-chain,
-     *      off-chain, and fiat rails using a score function (fee + latency + liquidity).
-     *    - UI: toggle & status shown in settings and spend modal. In a real app,
-     *      this logic would be implemented in the backend or wallet engine, with
-     *      telemetry and fallback routing. The UI merely demonstrates how users
-     *      enable/disable and see routing results.
-     *
-     * 2) Smart Cash-Mode  (patent-candidate concept)
-     *    - Concept: Temporarily open a fiat-like payment bridge for short windows
-     *      (e.g., 15 minutes) or until funds exhausted — enabling crypto to be
-     *      used at POS like cash with immediate settlement to merchant.
-     *    - UI: single toggle and special "Smart Cash-Mode" rail tag in the spend flow.
-     *
-     * If you want, I can:
-     * - Export this to a zip with assets and icons.
-     * - Convert this into a React component library with real state & animations.
-     * - Generate an annotated Figma spec or handoff-ready HTML/CSS with tokens.
-     **************************************************************************/
-    <script>
+<script>
   const overlay = document.getElementById('overlay');
   const modalBox = document.getElementById('modalBox');
 
@@ -707,6 +351,6 @@
   overlay.addEventListener('click',e=>{
     if(e.target===overlay) overlay.style.display='none';
   });
-  </script>
+</script>
 </body>
 </html>
