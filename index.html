@@ -8,7 +8,7 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{
-    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     background:#fff;
     color:#111;
     display:flex;
@@ -17,7 +17,9 @@
     justify-content:flex-start;
     min-height:100vh;
     padding:30px 60px;
+    transition:background .4s,color .4s;
   }
+  body.dark{background:#111;color:#eee;}
 
   /* Header */
   header{
@@ -28,33 +30,27 @@
     align-items:center;
     margin-bottom:60px;
   }
-  .logo{
-    font-size:28px;
-    font-weight:700;
-    color:#111;
+  .logo{font-size:28px;font-weight:700;}
+  nav{display:flex;align-items:center;gap:20px;}
+  nav a{color:#2f6df6;text-decoration:none;font-weight:600;font-size:16px;}
+  nav a:hover{text-decoration:underline;}
+  .toggle-mode{
+    cursor:pointer;font-size:18px;background:#f2f2f2;border-radius:50%;
+    width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+    transition:background .3s;
   }
-  nav a{
-    color:#2f6df6;
-    text-decoration:none;
-    font-weight:600;
-    font-size:16px;
-  }
+  .toggle-mode:hover{background:#ddd;}
+  body.dark .toggle-mode{background:#222;color:#fff;}
 
   /* Layout */
   .container{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    width:100%;
-    max-width:1200px;
-    gap:40px;
+    display:flex;align-items:center;justify-content:space-between;
+    width:100%;max-width:1200px;gap:40px;
   }
-  .left{
-    flex:1;
-    min-width:320px;
-  }
+  .left{flex:1;min-width:320px;}
   .left h1{font-size:42px;font-weight:800;margin-bottom:20px;}
   .left p{font-size:18px;line-height:1.5;color:#333;margin-bottom:30px;}
+  body.dark .left p{color:#bbb;}
   .cta{
     background:#2f6df6;color:white;padding:14px 24px;
     font-size:17px;border-radius:10px;cursor:pointer;border:none;
@@ -76,24 +72,32 @@
   .screen{
     position:relative;width:100%;height:100%;background:#fff;border-radius:32px;
     overflow:hidden;display:flex;flex-direction:column;
+    transition:background .4s,color .4s;
   }
+  body.dark .screen{background:#1a1a1a;color:#fff;}
 
   /* Status Bar */
   .status-bar{
     display:flex;justify-content:space-between;align-items:center;
-    padding:6px 12px;font-size:12px;background:#f8f8f8;
+    padding:6px 12px;font-size:12px;background:#f8f8f8;transition:background .3s;
   }
+  body.dark .status-bar{background:#222;}
   .status-icons i{margin-left:6px;}
 
-  /* App sections */
-  .app-content{flex:1;overflow-y:auto;padding:16px;}
-  .hidden{display:none;}
+  /* App Content */
+  .app-content{flex:1;overflow-y:auto;padding:16px;opacity:1;transition:opacity .4s;}
+  .app-content.hidden{display:none;opacity:0;}
+  .fade-in{animation:fadeIn .4s ease forwards;}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 
   /* Wallet Screen */
   .balance-card{
     background:#f9fafb;padding:16px;border-radius:14px;margin-bottom:20px;
+    transition:background .4s;
   }
+  body.dark .balance-card{background:#2a2a2a;}
   .balance-label{color:#666;font-size:14px;}
+  body.dark .balance-label{color:#aaa;}
   .balance-value{font-size:26px;font-weight:700;margin-top:6px;}
   .balance-change{color:#25a96a;font-weight:600;font-size:13px;}
   .actions{display:flex;justify-content:space-between;margin-top:20px;}
@@ -101,11 +105,15 @@
     flex:1;margin:0 4px;padding:10px;background:#fff;border:1px solid #eee;
     border-radius:12px;font-size:13px;cursor:pointer;transition:background .3s;
   }
+  body.dark .action-btn{background:#2a2a2a;border:1px solid #444;color:#eee;}
   .action-btn:hover{background:#f2f5ff;}
+  body.dark .action-btn:hover{background:#333;}
   .coin{
     display:flex;justify-content:space-between;align-items:center;
     background:#fafafa;border-radius:12px;padding:12px 16px;margin-bottom:10px;
+    transition:background .4s;
   }
+  body.dark .coin{background:#2a2a2a;}
   .coin-left{display:flex;align-items:center;gap:10px;}
   .coin-icon{
     width:36px;height:36px;border-radius:8px;display:flex;align-items:center;
@@ -116,15 +124,17 @@
   .activity-item{
     display:flex;justify-content:space-between;align-items:center;
     background:#f9fafb;padding:12px 16px;border-radius:10px;margin-bottom:10px;
+    transition:background .4s;
   }
-  .activity-item span:first-child{font-weight:600;}
-  .activity-amount{font-weight:700;}
+  body.dark .activity-item{background:#2a2a2a;}
 
   /* Offers Screen */
   .offer-card{
     background:#f9fafb;border-radius:12px;padding:14px;margin-bottom:10px;
     display:flex;justify-content:space-between;align-items:center;
+    transition:background .4s;
   }
+  body.dark .offer-card{background:#2a2a2a;}
   .offer-info{display:flex;flex-direction:column;}
   .offer-title{font-weight:700;margin-bottom:4px;}
   .offer-btn{
@@ -135,18 +145,23 @@
   /* More Screen */
   .more-item{
     background:#f9fafb;border-radius:12px;padding:14px;margin-bottom:8px;
-    font-weight:600;cursor:pointer;
+    font-weight:600;cursor:pointer;transition:background .3s;
   }
+  body.dark .more-item{background:#2a2a2a;}
+  .more-item:hover{background:#e9e9e9;}
+  body.dark .more-item:hover{background:#333;}
 
   /* Bottom Navigation */
   .bottom-nav{
     border-top:1px solid #eee;display:flex;justify-content:space-around;
-    align-items:center;padding:10px 0;
+    align-items:center;padding:10px 0;transition:border-color .4s;
   }
+  body.dark .bottom-nav{border-color:#333;}
   .nav-item{
     display:flex;flex-direction:column;align-items:center;
-    font-size:12px;color:#777;cursor:pointer;
+    font-size:12px;color:#777;cursor:pointer;transition:color .3s;
   }
+  body.dark .nav-item{color:#bbb;}
   .nav-item.active{color:#2f6df6;font-weight:700;}
   .nav-item i{font-size:18px;margin-bottom:4px;}
 </style>
@@ -155,7 +170,10 @@
 
 <header>
   <div class="logo">Digit</div>
-  <nav><a href="#">How Digit Works</a></nav>
+  <nav>
+    <a href="#">How Digit Works</a>
+    <div class="toggle-mode" id="toggleMode"><i class="fa-solid fa-moon"></i></div>
+  </nav>
 </header>
 
 <div class="container">
@@ -167,7 +185,7 @@
 
   <div class="right">
     <div class="iphone">
-      <div class="screen">
+      <div class="screen" id="screen">
         <div class="status-bar">
           <div>9:41</div>
           <div class="status-icons">
@@ -211,9 +229,9 @@
         <!-- Activities -->
         <div class="app-content hidden" id="activitiesScreen">
           <h3 style="margin-bottom:12px;">Recent Activities</h3>
-          <div class="activity-item"><span>Sent BTC</span><span class="activity-amount">-0.05 BTC</span></div>
-          <div class="activity-item"><span>Received ETH</span><span class="activity-amount">+0.25 ETH</span></div>
-          <div class="activity-item"><span>Swapped to USDC</span><span class="activity-amount">+250 USDC</span></div>
+          <div class="activity-item"><span>Sent BTC</span><span>-0.05 BTC</span></div>
+          <div class="activity-item"><span>Received ETH</span><span>+0.25 ETH</span></div>
+          <div class="activity-item"><span>Swapped to USDC</span><span>+250 USDC</span></div>
         </div>
 
         <!-- Offers -->
@@ -264,10 +282,10 @@
 </div>
 
 <script>
-const overlay = document.getElementById('overlay');
-const modalBox = document.getElementById('modalBox');
-function openModal(title, body){
-  modalBox.innerHTML = `<h3>${title}</h3><p>${body}</p><button id='closeModal' style="margin-top:20px;background:#2f6df6;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;">Close</button>`;
+const overlay=document.getElementById('overlay');
+const modalBox=document.getElementById('modalBox');
+function openModal(title,body){
+  modalBox.innerHTML=`<h3>${title}</h3><p>${body}</p><button id='closeModal' style="margin-top:20px;background:#2f6df6;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;">Close</button>`;
   overlay.style.display='flex';
   document.getElementById('closeModal').onclick=()=>overlay.style.display='none';
 }
@@ -280,25 +298,39 @@ document.querySelectorAll('.offer-btn').forEach(btn=>{
   btn.onclick=()=>openModal('Offer Purchased','Simulated offer redemption with crypto credits.');
 });
 
-// Navigation logic
-const screens = {
-  wallet: document.getElementById('walletScreen'),
-  activities: document.getElementById('activitiesScreen'),
-  offers: document.getElementById('offersScreen'),
-  more: document.getElementById('moreScreen')
+// Navigation
+const screens={
+  wallet:document.getElementById('walletScreen'),
+  activities:document.getElementById('activitiesScreen'),
+  offers:document.getElementById('offersScreen'),
+  more:document.getElementById('moreScreen')
 };
-const navItems = document.querySelectorAll('.nav-item');
+const navItems=document.querySelectorAll('.nav-item');
 navItems.forEach(item=>{
   item.onclick=()=>{
     navItems.forEach(i=>i.classList.remove('active'));
     item.classList.add('active');
-    const screen = item.dataset.screen;
-    Object.values(screens).forEach(s=>s.classList.add('hidden'));
-    screens[screen].classList.remove('hidden');
-  }
+    Object.values(screens).forEach(s=>{s.classList.add('hidden');s.classList.remove('fade-in');});
+    const current=screens[item.dataset.screen];
+    current.classList.remove('hidden');
+    current.classList.add('fade-in');
+  };
 });
 
-// close modal by background click
+// Dark Mode
+const toggle=document.getElementById('toggleMode');
+const body=document.body;
+toggle.onclick=()=>{
+  body.classList.toggle('dark');
+  const icon=toggle.querySelector('i');
+  if(body.classList.contains('dark')){
+    icon.classList.replace('fa-moon','fa-sun');
+  }else{
+    icon.classList.replace('fa-sun','fa-moon');
+  }
+};
+
+// Close modal by clicking background
 overlay.onclick=e=>{if(e.target===overlay)overlay.style.display='none';};
 </script>
 </body>
